@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zillertal Familienplan</title><style>
+:root{--accent:#2c5d3f;--accent-light:#4f8c6d;--bg:#f5f9fb;--card-bg:#fff;
+ --t1:#28a745;--t2:#ffc107;--t3:#dc3545;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(180deg,#6db1ff 0%,#ffffff 80%);padding:2rem 1rem;text-align:center;}
+h1{margin:0;font-size:2rem;color:var(--accent);}
+details{margin:0 auto 1.2rem;max-width:960px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.06);}
+summary{padding:1rem 1.2rem;background:var(--accent);color:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;user-select:none;}
+section{padding:.8rem 1rem;background:var(--card-bg);}
+article{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem .4rem;border-bottom:1px solid #e8e8e8;}
+article:last-child{border:none;}
+article input[type=checkbox]{margin-top:.45rem;transform:scale(1.25);}
+article h3{margin:.05rem 0 .25rem 0;font-size:1rem;color:var(--accent-light);}
+article p{margin:.1rem 0;font-size:.85rem;line-height:1.45;}
+a{color:var(--accent-light);}
+.diff{display:inline-block;font-weight:700;padding:0 .45em;border-radius:4px;font-size:.8rem;color:#fff;}
+.t1{background:var(--t1);}
+.t2{background:var(--t2);color:var(--text);}
+.t3{background:var(--t3);}
+footer{text-align:center;font-size:.8rem;color:#666;padding:1.5rem;}
+
+:root.dark header{background:linear-gradient(180deg,#00468c 0%,#1a1a1a 80%);}
+:root.dark a{color:var(--accent-light);}
+
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+   cb.checked = localStorage.getItem(cb.id)==='true';
+   cb.addEventListener('change',()=>localStorage.setItem(cb.id,cb.checked));
+ });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const stored = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  const root = document.documentElement;
+  root.classList.toggle('dark', stored === 'dark');
+  const btn = document.getElementById('toggle-theme');
+  if(btn){
+    const setIcon = ()=> btn.textContent = root.classList.contains('dark') ? '☀️' : '🌙';
+    setIcon();
+    btn.addEventListener('click', ()=>{
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+      setIcon();
+    });
+  }
+});
+</script>
+
+</head><body>
+<header><h1>Zillertal‑Urlaub&nbsp;• Familien‑Planer</h1><p>Wander‑ & Indoor‑Programm mit präzisen Kartenlinks</p>  <button id="toggle-theme" aria-label="Theme switch">🌙</button>
+</header>
+<details open><summary>🌞 Haupt‑Touren</summary><section>
+<article>
+  <input type="checkbox" id="m1">
+  <div>
+    <h3>Tag 1 – Spieljoch Erlebnisrundweg 🚡 <span class="diff t1">T1</span></h3>
+    <p>Panoramaweg über Speicherteich &amp; Bergspielplatz – perfekter Einstieg.</p>
+    <p><b>Distanz:</b> 5 km &nbsp; <b>Höhenm.:</b> ↑ 250 m / ↓ 250 m &nbsp; <b>Zeit:</b> 2 h</p>
+    <p><b>Anfahrt:</b> A12 Ausfahrt Zillertal → B169 bis Fügen, Parkdeck Talstation Spieljochbahn; Auffahrt mit Gondel.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.3467,11.8517" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Bergrestaurant Spieljoch / Geolsalm</p>
+    <p><b>Track:</b> <a href="https://www.alltrails.com/trail/austria/tyrol/spieljochbahn-bergstation-rundweg" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.spieljochbahn.at/" target="_blank" rel="noopener">Spieljochbahn</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m2">
+  <div>
+    <h3>Tag 2 – Tristenbach- &amp; Klausenalm <span class="diff t2">T2</span></h3>
+    <p>Wildes Bachtal mit Wasserfällen und zwei urigen Almen.</p>
+    <p><b>Distanz:</b> 7,8 km &nbsp; <b>Höhenm.:</b> ± 430 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> B169 bis Mayrhofen → Richtung Ginzling; nach Tunnel mautpflichtige Tristenbachstraße bis Endparkplatz.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0972,11.8673" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Tristenbachalm / Klausenalm</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/tristenbachalm-klausenalm/1334547/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m3">
+  <div>
+    <h3>Tag 3 – Penkenjoch → Astegg 🚡 <span class="diff t2">T2</span></h3>
+    <p>Höhenweg mit Adlerbühne; stetiger Abstieg.</p>
+    <p><b>Distanz:</b> 8,4 km &nbsp; <b>Höhenm.:</b> ↑ 120 m / ↓ 500 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> Parken an Penkenbahn-Talstation Mayrhofen; Gondel bis Penkenjoch. Rückfahrt per Bus von Astegg/Finkenberg.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1669,11.8614" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Granatalm / Wanglalm / Asteggalm</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/finkenberg-astegg-penkenjoch/13491612/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.mayrhofner-bergbahnen.com/en" target="_blank" rel="noopener">Penkenbahn &amp; Kombibahn</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m4">
+  <div>
+    <h3>Tag 4 – Zillergrund-Stausee &amp; Adlerblick <span class="diff t1">T1</span></h3>
+    <p>Fast ebener Uferweg mit Aussichtskanzel „Klein‑Tibet“.</p>
+    <p><b>Distanz:</b> 14 km &nbsp; <b>Höhenm.:</b> ± 200 m &nbsp; <b>Zeit:</b> 4 h</p>
+    <p><b>Anfahrt:</b> Ab Mayrhofen Mautstraße in den Zillergrund (Bus 8328) bis Gasthaus Bärenbad bzw. Adlerblick-Shuttle.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0731,11.9314" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthaus Bärenbad / Alpengasthof Adlerblick</p>
+    <p><b>Track:</b> <a href="https://www.komoot.com/tour/1299818007" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m5">
+  <div>
+    <h3>Tag 5 – Pfitscher‑Joch‑Weg <span class="diff t2">T2</span></h3>
+    <p>Historischer Grenzpass mit Gletscherblicken &amp; Murmeltieren.</p>
+    <p><b>Distanz:</b> 17 km &nbsp; <b>Höhenm.:</b> ± 470 m &nbsp; <b>Zeit:</b> 4 ½ h</p>
+    <p><b>Anfahrt:</b> Schlegeis Alpenstraße (mautpflichtig) bis Stausee Südende; Parkplatz Zamsergrund.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0456,11.7151" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Pfitscher‑Joch‑Haus</p>
+    <p><b>Track:</b> <a href="https://www.alltrails.com/trail/austria/tyrol/schlegeis-stausee-pfitscher-joch" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m6">
+  <div>
+    <h3>Tag 6 – Fichtenschloss &amp; Fichtensee 🚡 <span class="diff t1">T1</span></h3>
+    <p>Kurzer Waldweg zum großen Holz‑Spielschloss und Badesee.</p>
+    <p><b>Distanz:</b> 3,5 km &nbsp; <b>Höhenm.:</b> ± 140 m &nbsp; <b>Zeit:</b> 2 h + Spielzeit</p>
+    <p><b>Anfahrt:</b> Talstation Rosenalmbahn Zell am Ziller (Parkhaus); Gondel bis Rosenalm.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2409,11.8856" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Wiesenalm / Rosenalm‑Bergrestaurant</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/fichtenschloss-fichtensee/16865712/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.zillertalarena.com/en/rosenalm/" target="_blank" rel="noopener">Rosenalmbahn</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m7">
+  <div>
+    <h3>Tag 7 – Stilluptal → Grüne‑Wand‑Hütte <span class="diff t2">T2</span></h3>
+    <p>Wasserfallweg; optional Alpenrosensteig (T3).</p>
+    <p><b>Distanz:</b> 14,7 km &nbsp; <b>Höhenm.:</b> ± 376 m &nbsp; <b>Zeit:</b> 4 h</p>
+    <p><b>Anfahrt:</b> Mayrhofen → mautpflichtige Stilluptalstraße bis Gasthof Wasserfall (Parkplatz). Buslinie ab Bahnhof.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0974,11.9278" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthof Wasserfall / Stillupperhaus / Grüne‑Wand‑Hütte</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/stilluppergrund-gruene-wand-huette/1448904/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m8">
+  <div>
+    <h3>Tag 8 – Ahornplateau &amp; Filzenkogel 🚡 <span class="diff t2">T2</span></h3>
+    <p>Erlebnisrundweg mit Gipfelkreuz &amp; Talpanorama.</p>
+    <p><b>Distanz:</b> 6 km &nbsp; <b>Höhenm.:</b> ± 320 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> Großparkplatz Ahornbahn Mayrhofen; Pendelbahn auf das Plateau.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1611,11.8656" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Panoramarestaurant Ahorn / Filzenalm</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/ahorn-plateau-filzenkogel/1424489/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.mayrhofner-bergbahnen.com/en" target="_blank" rel="noopener">Ahornbahn</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m9">
+  <div>
+    <h3>Tag 9 – Zemmschlucht – Gamsgrube <span class="diff t2">T2</span></h3>
+    <p>Felsschlucht, Hängebrücke &amp; Naturlehrpfad.</p>
+    <p><b>Distanz:</b> 8,2 km &nbsp; <b>Höhenm.:</b> ↑ 500 m / ↓ 400 m &nbsp; <b>Zeit:</b> 4 h</p>
+    <p><b>Anfahrt:</b> B169 bis Ginzling; Parken am Naturparkhaus (Bus 4102).</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1083,11.8237" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Jausenstation Gamsgrube / Naturparkhaus Ginzling</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/zemmschlucht-gamsgrube/12486065/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m10">
+  <div>
+    <h3>Tag 10 – Krimmler Wasserfälle &amp; Achenweg <span class="diff t2">T2</span></h3>
+    <p>Serpentinenweg entlang Europas höchster Wasserfälle.</p>
+    <p><b>Distanz:</b> 7,2 km &nbsp; <b>Höhenm.:</b> ± 430 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> B165 Gerlospassstraße bis Krimml; Wasserfall-Parkplatz beim Besucherzentrum.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2094,12.1665" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthaus Schönangerl / Krimmler Tauernhaus</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/krimmler-wasserfaelle/1224507/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m11">
+  <div>
+    <h3>Tag 11 – Gerlosstein Zirbenweg &amp; Larchkogel 🚡 <span class="diff t2">T2</span></h3>
+    <p>Duftender Zirbenwald &amp; Aussichtskanzeln.</p>
+    <p><b>Distanz:</b> 5,5 km &nbsp; <b>Höhenm.:</b> ± 350 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> Talstation Gerlossteinbahn in Hainzenberg; Seilbahn ins Zirbengebiet.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2221,11.8638" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Berghotel Gerlosstein / Kotahornalm</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/gerlosstein-zirbenweg/1339894/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.zillertalarena.com/en/gerlossteinbahn/" target="_blank" rel="noopener">Gerlossteinbahn</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m12">
+  <div>
+    <h3>Tag 12 – Wedelhütten‑Panoramaweg 🚡 <span class="diff t1">T1</span></h3>
+    <p>Sanfter Gipfelplateau‑Spaziergang auf 2 300 m.</p>
+    <p><b>Distanz:</b> 4,8 km &nbsp; <b>Höhenm.:</b> ± 200 m &nbsp; <b>Zeit:</b> 2 h</p>
+    <p><b>Anfahrt:</b> Talstation Hochzillertal Kaltenbach; Kabinenbahn &amp; Wimbachexpress bis Bergstation.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2879,11.8733" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Wedelhütte / Kristallhütte</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/wedelhutte-panoramaweg/17544002/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.hochzillertal.com/en/" target="_blank" rel="noopener">Wimbachexpress</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m13">
+  <div>
+    <h3>Tag 13 – Steinerkogel (Brandberg) <span class="diff t2">T2</span></h3>
+    <p>Serpentinenweg zur Kaiserschmarrn‑Terrasse.</p>
+    <p><b>Distanz:</b> 4,3 km &nbsp; <b>Höhenm.:</b> ± 600 m &nbsp; <b>Zeit:</b> 3 ½ h</p>
+    <p><b>Anfahrt:</b> Mayrhofen → Brandberg (Bus 4100); Parkplatz unterhalb Gasthof Thanner.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1708,11.9189" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthof Steinerkogl</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/steinerkogl-brandberg/1208755/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="m14">
+  <div>
+    <h3>Tag 14 – Abschiedsrunde Radweg / Badesee <span class="diff t1">T1</span></h3>
+    <p>Gemütliches Ausradeln oder See‑Picknick.</p>
+    <p><b>Distanz:</b> variabel ≈ 10 km &nbsp; <b>Höhenm.:</b> ± 50 m &nbsp; <b>Zeit:</b> 1 – 2 h</p>
+    <p><b>Anfahrt:</b> Einstieg entlang des Zillertalradwegs, z. B. Bahnhof Zell am Ziller oder Camping Aufenfeld.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.3522,11.8417" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> –</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/cycling/zillertalradweg/1178252/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article></section></details><details><summary>⛰️ Alternativ‑Touren</summary><section>
+<article>
+  <input type="checkbox" id="a1">
+  <div>
+    <h3>Alt A – Olpererhütte &amp; Hängebrücke <span class="diff t2">T2</span></h3>
+    <p>Familienfreundlicher Serpentinensteig zur bekannten Brücke (T2).</p>
+    <p><b>Distanz:</b> 7 km &nbsp; <b>Höhenm.:</b> ± 600 m &nbsp; <b>Zeit:</b> 3 ½ h</p>
+    <p><b>Anfahrt:</b> Schlegeis Alpenstraße (mautpflichtig) bis Stausee Südende; Parkmöglichkeiten an der Staumauer.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0456,11.7151" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Olpererhütte</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/olpererhuette/1463907/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="a2">
+  <div>
+    <h3>Alt B – Plauener Hütte am Zillergründl <span class="diff t3">T3</span></h3>
+    <p>Blockweg über Staumauer mit tollem Gletscherblick (T3).</p>
+    <p><b>Distanz:</b> 9,3 km &nbsp; <b>Höhenm.:</b> ± 553 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> Zillergründl Mautstraße bis Stausee-Damm; Bus 8328 ab Mayrhofen möglich.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0479,11.8936" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Plauener Hütte</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/plauener-huette/1372700/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="a3">
+  <div>
+    <h3>Alt C – Kotahornalm‑Rundweg 🚡 <span class="diff t2">T2</span></h3>
+    <p>Wurzelpfad durch Zirbenwald, ruhige Alm (T2).</p>
+    <p><b>Distanz:</b> 7,5 km &nbsp; <b>Höhenm.:</b> ± 581 m &nbsp; <b>Zeit:</b> 2 ¾ h</p>
+    <p><b>Anfahrt:</b> Talstation Gerlossteinbahn in Hainzenberg; Seilbahnauffahrt.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2221,11.8638" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Kotahornalm / Berghotel Gerlosstein</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/kotahornalm/1459400/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    <p><b>Bergbahn:</b> <a href="https://www.zillertalarena.com/en/gerlossteinbahn/" target="_blank" rel="noopener">Gerlossteinbahn</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="a4">
+  <div>
+    <h3>Alt D – Steinbockweg Floitengrund <span class="diff t3">T3</span></h3>
+    <p>Wilder Talschluss mit Steinbock‑Chance (T3).</p>
+    <p><b>Distanz:</b> 8,2 km &nbsp; <b>Höhenm.:</b> ± 400 m &nbsp; <b>Zeit:</b> 3 h</p>
+    <p><b>Anfahrt:</b> Ginzling → Floitengrund Mautstraße bis Steinbockhütte Parkplatz.</p><p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0736,11.8778" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Steinbockhütte</p>
+    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/steinbockweg-floitengrund/1572400/" target="_blank" rel="noopener">GPX / Karte</a></p>
+    
+  </div>
+</article></section></details><details><summary>☔ Schlechtwetter‑Aktivitäten</summary><section>
+<article>
+  <input type="checkbox" id="bw1">
+  <div>
+    <h3>Erlebnistherme Zillertal</h3>
+    <p>Wasserwelt mit 133 m Rutsche &amp; Solebecken</p>
+    <p><a href="https://www.erlebnistherme-zillertal.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.346,11.852" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw2">
+  <div>
+    <h3>Kletterzentrum Zillertal</h3>
+    <p>1 500 m² Indoor‑Klettern &amp; Boulderhalle</p>
+    <p><a href="https://www.kletterzentrum-zillertal.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2365,11.871" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw3">
+  <div>
+    <h3>FeuerWerk HolzErlebniswelt</h3>
+    <p>Multimedia‑Show über nachhaltige Holzwirtschaft</p>
+    <p><a href="https://www.feuerwerk.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.3463,11.8525" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw4">
+  <div>
+    <h3>Naturparkhaus Ginzling</h3>
+    <p>Interaktive Ausstellung „Gletscher.Wasser.Leben“</p>
+    <p><a href="https://www.naturpark-zillertal.at/en/naturepark-house.html" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.0972,11.8673" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw5">
+  <div>
+    <h3>Boulderhalle freiraum</h3>
+    <p>Indoor‑Bouldern &amp; Kids‑Zone</p>
+    <p><a href="https://www.freiraum-mayrhofen.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.1674,11.8649" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw6">
+  <div>
+    <h3>Heimatmuseum Zell</h3>
+    <p>Bauernstube &amp; Wintersport‑Historie</p>
+    <p><a href="https://www.museumzell.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2344,11.8711" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw7">
+  <div>
+    <h3>ErlebnisSennerei Zillertal</h3>
+    <p>Schaukäserei &amp; Streichelzoo</p>
+    <p><a href="https://www.erlebniswelt-zillertal.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.1719,11.8674" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw8">
+  <div>
+    <h3>Planetarium Schwaz</h3>
+    <p>360°‑Sternenshows für Kids &amp; Erwachsene</p>
+    <p><a href="https://www.planetarium.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.3463,11.7064" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw9">
+  <div>
+    <h3>BrauKunstHaus Zillertal Bier</h3>
+    <p>Hopfen‑Erlebnisweg &amp; Verkostung</p>
+    <p><a href="https://www.braukunsthaus.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2348,11.8715" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw10">
+  <div>
+    <h3>Museum der Völker</h3>
+    <p>Masken, Kulturen &amp; Mitmach‑Stationen</p>
+    <p><a href="https://www.museumdervoelker.com/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.3483,11.7052" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw11">
+  <div>
+    <h3>Museum der Illusionen Innsbruck</h3>
+    <p>Verblüffende Illusionen &amp; Selfie‑Spots</p>
+    <p><a href="https://innsbruck.museumderillusionen.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2682,11.3938" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw12">
+  <div>
+    <h3>YOUR DOME Tirol</h3>
+    <p>360°‑Kuppel für Dokus &amp; Konzerte</p>
+    <p><a href="https://yourdometirol.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.346,11.8516" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw13">
+  <div>
+    <h3>Glockendorf Tirol</h3>
+    <p>Mitmach‑Ausstellung zu Glockenguss &amp; Klang</p>
+    <p><a href="https://www.glockendorf.com/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.5914,12.5414" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article>
+
+<article>
+  <input type="checkbox" id="bw14">
+  <div>
+    <h3>Kletterzentrum Innsbruck</h3>
+    <p>Europas größtes Kletter‑ &amp; Boulderzentrum</p>
+    <p><a href="https://www.kletterzentrum-innsbruck.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2603,11.3969" target="_blank" rel="noopener">Karte</a></p>
+  </div>
+</article></section></details><footer>© 2025 – Viel Spaß im Zillertal!</footer></body></html>
