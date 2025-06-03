@@ -1,452 +1,572 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zillertal Familienplan</title><style>
-:root{--accent:#2c5d3f;--accent-light:#4f8c6d;--bg:#f5f9fb;--card-bg:#fff;
- --t1:#28a745;--t2:#ffc107;--t3:#dc3545;}
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#333;}
-header{background:linear-gradient(180deg,#6db1ff 0%,#ffffff 80%);padding:2rem 1rem;text-align:center;}
-h1{margin:0;font-size:2rem;color:var(--accent);}
-details{margin:0 auto 1.2rem;max-width:960px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.06);}
-summary{padding:1rem 1.2rem;background:var(--accent);color:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;user-select:none;}
-section{padding:.8rem 1rem;background:var(--card-bg);}
-article{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem .4rem;border-bottom:1px solid #e8e8e8;}
-article:last-child{border:none;}
-article input[type=checkbox]{margin-top:.45rem;transform:scale(1.25);}
-article h3{margin:.05rem 0 .25rem 0;font-size:1rem;color:var(--accent-light);}
-article p{margin:.1rem 0;font-size:.85rem;line-height:1.45;}
-a{color:var(--accent-light);}
-.diff{display:inline-block;font-weight:700;padding:0 .45em;border-radius:4px;font-size:.8rem;color:#fff;}
-.t1{background:var(--t1);}
-.t2{background:var(--t2);color:#333;}
-.t3{background:var(--t3);}
-footer{text-align:center;font-size:.8rem;color:#666;padding:1.5rem;}
 
-
-/* === Dark Mode Enhancements === */
-:root{
-  --fg:#333;
-  --muted:#666;
-  --border:#e8e8e8;
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zillertal Tourenplan 2025</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+summary { @apply cursor-pointer select-none text-lg font-semibold;}
+summary::-webkit-details-marker{display:none;} 
+/* Arrow icons on summary */
+summary::after{
+  content: "\f078"; /* Font Awesome chevron-down */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 0.5rem;
+  transition: transform .2s;
+}
+details[open] > summary::after{
+  transform: rotate(180deg);
 }
 
-:root.dark{
-  --bg:#121212;
-  --card-bg:#1e1e1e;
-  --fg:#e0e0e0;
-  --muted:#9e9e9e;
-  --border:#333;
-  --accent:#66aaff;
-  --accent-light:#8cc2ff;
+/* Scroll-to-top button */
+#scrollTopBtn{
+  position:fixed;
+  bottom:1.5rem;
+  right:1.5rem;
+  z-index:50;
+  display:none;
 }
-
-/* Smooth transitions */
-*{
-  transition:background .3s ease, color .3s ease, border-color .3s ease;
-}
-
-/* Layout tweaks */
-header{position:relative;}
-#toggle-theme{
-  position:absolute;
-  top:1rem;
-  right:1rem;
-  font-size:1.6rem;
-  background:none;
-  border:none;
-  cursor:pointer;
-  user-select:none;
-}
-
-/* Dark-mode specific overrides */
-.dark body,
-.dark header,
-.dark section{
-  background:var(--bg);
-  color:var(--fg);
-}
-.dark details{
-  box-shadow:0 2px 6px rgba(0,0,0,.3);
-}
-.dark article{
-  border-bottom:1px solid var(--border);
-}
-.dark a{
-  color:var(--accent-light);
+#scrollTopBtn.show{
+  display:flex;
 }
 
 </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+<div class="max-w-5xl mx-auto p-4">
+<header class="relative text-center mb-8 bg-gradient-to-r from-emerald-600 to-green-800 text-white py-10 rounded-lg shadow-lg dark:from-emerald-700 dark:to-green-900">
+  <h1 class="text-3xl font-bold">Tourenplan – Stumm im Zillertal (5.–19. Juli 2025)</h1>
+<button id="themeToggle" aria-label="Designmodus wechseln"
+  class="absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 p-2 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+  <i class="fa-solid fa-sun"></i>
+  <i class="fa-solid fa-moon hidden"></i>
+</button>
+</header>
 
+<details open class="mb-6">
+  <summary class="bg-emerald-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Haupttouren (13)</summary>
+  <div class="space-y-4 mt-4">
+    
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Filzenkogel 2 218 m</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Ahornbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Kurzer Wiesensteig ab Ahornplateau zum Gipfelkreuz mit Panoramablick.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 3,6 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 250 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Ahornbahn (Mayrhofen)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.ahornhuette-mayrhofen.at/de/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Ahornhütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.tirol.at/aktivitaeten/sport/winterwandern/winterwanderungen/winterwanderweg-filzenkogel" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Ahornbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Spieljoch – Geols- &amp; Gartalm-Runde</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Spieljochbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Zirbenwald-Lehrpfad, Kugelbahnen und zwei urige Hütten auf einem aussichtsreichen Panorama­weg.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 8,4 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 302 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Spieljochbahn (Fügen)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.bergwelten.com/h/jausenstation-geolsalm" target="_blank" class="text-blue-600 underline dark:text-blue-400">Geolsalm</a>, <a href="https://hubertus-zillertal.com/gart-alm" target="_blank" class="text-blue-600 underline dark:text-blue-400">Gartalm</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.outdooractive.com/de/route/wanderung/erste-ferienregion-zillertal/leichte-rundwanderung-am-spieljoch-mit-gartalm-/225390471/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.spieljochbahn.at/sommer/tarife/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Spieljochbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Isskogel 2 264 m</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Isskogelbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Sanfter Wiesenrücken mit Kugelbahn &amp; Holzspielplatz – ideal für Kinder.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 5,5 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 360 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Isskogelbahn (Gerlos)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.latschenalm.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Latschenalm</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.zillertalarena.com/gerlos/sommer/wandergebiet/detail/wanderung-auf-den-isskogel-2264-m-nr-1/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Isskogelbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Fichtenschloss &amp; Fichtensee</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Rosenalmbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Abenteuer-Spielplatz im Baum-Schloss, Wasser­welt am See &amp; Panoramatürme.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 4 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 150 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Rosenalmbahn (Zell am Ziller)</li>
+    
+    <li><strong>Einkehr:</strong> Berggasthof Rosenalm</li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/erlebniswelten/erlebniswelt-rosenalm/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Rosenalmbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Holzweg Zellberg</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span></div>
+  </div>
+  <p class="mt-1 text-sm">Themenweg mit 15 interaktiven Stationen rund ums Thema Wald &amp; Holz.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 3,8 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 290 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Parkplatz Zillerbrücke Zellberg</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.schulhaus.tirol" target="_blank" class="text-blue-600 underline dark:text-blue-400">Jausenstation Schulhaus</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.tirol.at/aktivitaeten/sport/wandern/wandertouren/holzweg-zellberg" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Schleierwasserfall Hart</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span></div>
+  </div>
+  <p class="mt-1 text-sm">Lehrpfad mit Hängebrücke zum 91 m hohen Wasserfall – ideal für halbe Tage.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 4 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 200 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Gasthof Almdiele (Hart im Zillertal)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.almdiele.at/restaurant/speisekarte/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Almdiele</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.almenrausch.at/touren/detail/harter-schleierwasserfall-von-haselbach/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Kristallhütten‑Panoramaweg</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Hochzillertal (Wimbach‑Express)"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Locker‑leichter Höhenweg über Almrosen­hänge – Einkehr in der stylischen Kristallhütte.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 5 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 250 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Wimbach‑Express (Hochzillertal, Kaltenbach)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.kristallhuette.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Kristallhütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.kristallhuette.at/sommer-am-berg/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline dark:text-blue-400">Hochzillertal (Wimbach‑Express)</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Melchboden – Arbiskopf 2 135 m</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Zillertaler Höhenstraße"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Schwungvoller Kamm­spaziergang mit Steinmännchen-Spiel und 360°‑Blick.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 7,5 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 414 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Parkplatz Melchboden (Zillertaler Höhenstraße)</li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.zillertaler-hoehenstrasse.com/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zillertaler Höhenstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.rastkogelhuette.de" target="_blank" class="text-blue-600 underline dark:text-blue-400">Rastkogelhütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/899660%2Cmelchboden--arbiskopf--rauhenkopf--rastkogelhuette--melchboden/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Stillupp-Stausee → Grüne‑Wand‑Hütte</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Stilluppstraße"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Gemütlicher Talweg entlang Wasserfällen bis zur aussichts­reichen Hüttenterrasse.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 11 km (A/R)</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 300 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Parking Stillupp-Stausee Nordufer</li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.myzillertal.at/de/service-providers/mautstrasse-stilluptal" target="_blank" class="text-blue-600 underline dark:text-blue-400">Stilluppstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.mayrhofen.at/de/service-providers/gruene-wand-huette-1436m" target="_blank" class="text-blue-600 underline dark:text-blue-400">Grüne‑Wand‑Hütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.tirol.tl/de/freizeit-aktiv/berge-wandern/durch-das-stilluptal-zur-gruene-wand-huette/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Penkenjoch‑Panoramarunde &amp; Granatalm</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Penken-/Kombibahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Familien‑Rundweg mit Aussichts­kapelle und Wasserspielplatz am Penkenjoch.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 6,2 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 330 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Kombibahn Penken (Mayrhofen)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.granatalm.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Granatalm</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.komoot.com/de-de/tour/406628229?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer" target="_blank" class="text-blue-600 underline dark:text-blue-400">Penken-/Kombibahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Almpromenade Gerlosstein</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Gerlossteinbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Themenweg „Zurück zum Ursprung“ mit Panorama-Schaukel und Stationen.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 2 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 72 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Gerlossteinbahn (Hainzenberg)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.gerlosstein.at/geoeffnet-von-bis.html" target="_blank" class="text-blue-600 underline dark:text-blue-400">Berghotel Gerlosstein</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.zillertalarena.com/sommer/wandergebiet/themenwanderwege/detail/almpromenade-gerlosstein/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Gerlossteinbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Eggalm „Almspielerei“‑Erlebnisrunde</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Eggalmbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Riesiger Wasser- &amp; Holzspielplatz mit Rätselpass und Streichel‑Eseln.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 3 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 150 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Eggalmbahn (Tux‑Lanersbach)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://eggalm.at/de" target="_blank" class="text-blue-600 underline dark:text-blue-400">Berggasthof Eggalm</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.hintertuxergletscher.at/de/sommer/eggalm-im-sommer/almspielerei/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.hintertuxergletscher.at/de/preise/ticketpreise/preise-eggalm-bahnen/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Eggalmbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Murmelland &amp; Skulpturenweg Hochzillertal</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Hochzillertal Gondel"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Streichel‑Murmeltierpark, Holzskulpturen &amp; Panoramasteg.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 4 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 180 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Kaltenbach (Hochzillertal)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.murmelland-zillertal.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Jausenstation Murmelland</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.murmelland-zillertal.at" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline dark:text-blue-400">Hochzillertal Gondel</a>
+  </div>
+</article>
+
+  </div>
+</details>
+
+<details  class="mb-6">
+  <summary class="bg-teal-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Bonus‑Touren (5)</summary>
+  <div class="space-y-4 mt-4">
+    
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Pfitscherjoch‑Haus 2 246 m</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Schlegeis Alpenstraße"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Wanderung vom Schlegeis‑Stausee durch das Zamser Tal bis an die italienische Grenze.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 12 km </li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 350 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Parkplatz Schlegeis‑Stausee</li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.schlegeis-speicher.com/schlegeis-alpenstrasse/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Schlegeis Alpenstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.pfitscherjochhaus.com/de/?utm_source=pfitscherjochhaus.com&utm_medium=301&utm_campaign=SecDomain" target="_blank" class="text-blue-600 underline dark:text-blue-400">Pfitscherjoch‑Haus</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/29658,pfitscherjoch-haus-ab-schlegeisspeicher/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Karl‑von‑Edel‑Hütte 2 238 m</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Ahornbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Almrosensteig ab Ahornplateau zur traditionsreichen AV‑Hütte mit Blick zur Ahornspitze.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 6,5 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 346 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Ahornbahn (Mayrhofen)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.dav-wuerzburg.de/hütten/karl-von-edel-huette" target="_blank" class="text-blue-600 underline dark:text-blue-400">Karl‑von‑Edel‑Hütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.bergwelten.com/t/w/3715?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer" target="_blank" class="text-blue-600 underline dark:text-blue-400">Ahornbahn</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Rastkogelhütte‑Rundweg</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Zillertaler Höhenstraße"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Kammwanderung oberhalb des Zillertals mit Stoamandlfeld und weitem Panorama.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 7,5 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 500 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Parkplatz Melchboden</li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.zillertaler-hoehenstrasse.com/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zillertaler Höhenstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.rastkogelhuette.de" target="_blank" class="text-blue-600 underline dark:text-blue-400">Rastkogelhütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.komoot.com/de-de/tour/90274254?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Marchkopf 2 499 m</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-red-500 text-white">T3</span><i class="fa-solid fa-cable-car" title="Bergbahn: Hochzillertal (Wimbach‑Express)"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Wiesen‑Grat vom Kristallhüttenplateau mit 360°‑Alpenblick.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 6,9 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 460 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Kristallhütte (Hochzillertal)</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.kristallhuette.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Kristallhütte</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.zillertalarena.com/sommer/bikeregion/biketouren/detail/gipfelwanderung-marchkopf-2499-m/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline dark:text-blue-400">Hochzillertal (Wimbach‑Express)</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between flex-wrap gap-x-4">
+    <h3 class="font-semibold text-lg">Isskogel → Stoankarköpfl‑Höhenweg</h3>
+    <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-gradient-to-r from-yellow-400 to-red-500 text-white">T2 – T3</span><i class="fa-solid fa-cable-car" title="Bergbahn: Isskogelbahn"></i></div>
+  </div>
+  <p class="mt-1 text-sm">Panorama‑Höhenweg oberhalb der Gerloser Almen mit Blick in die Hohen Tauern.</p>
+  <ul class="mt-2 text-sm list-disc list-inside space-y-0.5">
+    <li><strong>Distanz:</strong> 8 km</li>
+    <li><strong>Höhenmeter:</strong> ↑↓ 480 hm</li>
+    <li><strong>Ausgangspunkt:</strong> Bergstation Isskogelbahn</li>
+    
+    <li><strong>Einkehr:</strong> <a href="https://www.latschenalm.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Latschenalm</a></li>
+  </ul>
+  <div class="mt-2 flex flex-wrap gap-4 text-sm">
+    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/4266345,isskogel-panoramaweg/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/de/gerlos/seilbahnen/sommer.html" target="_blank" class="text-blue-600 underline dark:text-blue-400">Isskogelbahn</a>
+  </div>
+</article>
+
+  </div>
+</details>
+
+<details  class="mb-6">
+  <summary class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Schlechtwetter‑Ideen (10)</summary>
+  <div class="space-y-4 mt-4">
+    
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Erlebnistherme Zillertal Fügen</h3>
+  </div>
+  <p class="mt-1 text-sm">Große Indoor-Badelandschaft mit Wellenbecken &amp; Rutschen.</p>
+  <div class="mt-2">
+    <a href="https://www.erlebnistherme-zillertal.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">FeuerWerk HolzErlebnisWelt Fügen</h3>
+  </div>
+  <p class="mt-1 text-sm">Führung durch ein Biomassekraftwerk mit Sky‑Lounge.</p>
+  <div class="mt-2">
+    <a href="https://www.binderholz-feuerwerk.com/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Museum Tiroler Bauernhöfe Kramsach</h3>
+  </div>
+  <p class="mt-1 text-sm">Freilichtmuseum mit 14 originalen Tiroler Gehöften.</p>
+  <div class="mt-2">
+    <a href="https://www.museum-tb.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Riedel Glas Manufaktur Kufstein</h3>
+  </div>
+  <p class="mt-1 text-sm">Glasbläser live erleben &amp; Sensorik‑Tour.</p>
+  <div class="mt-2">
+    <a href="https://www.riedel.com/de/riedel-manufaktur-museum?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Atoll Achensee (Maurach)</h3>
+  </div>
+  <p class="mt-1 text-sm">Panorama‑Bad &amp; SPA direkt am See, Kletterturm.</p>
+  <div class="mt-2">
+    <a href="https://www.atoll-achensee.com/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Audioversum Innsbruck</h3>
+  </div>
+  <p class="mt-1 text-sm">Interaktives Science‑Center rund ums Hören.</p>
+  <div class="mt-2">
+    <a href="https://www.audioversum.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Your Dome Tirol – Planetarium Schwaz</h3>
+  </div>
+  <p class="mt-1 text-sm">360°‑Shows von Astronomie bis Abenteuer.</p>
+  <div class="mt-2">
+    <a href="https://www.yourdome.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Erlebnis‑Sennerei Zillertal Mayrhofen</h3>
+  </div>
+  <p class="mt-1 text-sm">Schau‑Käserei &amp; Bauernhof‑Zoo.</p>
+  <div class="mt-2">
+    <a href="https://www.sennerei-zillertal.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">BrauKunstHaus Zell am Ziller</h3>
+  </div>
+  <p class="mt-1 text-sm">Multimediale Bier‑Erlebniswelt mit Verkostung.</p>
+  <div class="mt-2">
+    <a href="https://www.braukunsthaus.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-lg">Festung Kufstein</h3>
+  </div>
+  <p class="mt-1 text-sm">Mächtige Grenzfestung mit Heldenorgel.</p>
+  <div class="mt-2">
+    <a href="https://www.festung.kufstein.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+  </div>
+</article>
+
+  </div>
+</details>
+
+<footer class="text-center text-xs text-gray-500 mt-12">
+  © 2025 Private Reiseplanung – erstellt mit ❤ von ChatGPT
+</footer>
+</div>
+
+<button id="scrollTopBtn" aria-label="Nach oben scrollen" class="bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:bg-emerald-700 transition">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  // Checkbox persistence with safe storage fallback
-  const store = (() => {
-    try{
-      localStorage.setItem('_test','1'); localStorage.removeItem('_test');
-      return localStorage;
-    }catch(e){ return {getItem:()=>null,setItem:()=>{}}; }
-  })();
-
-  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
-    cb.checked = store.getItem(cb.id)==='true';
-    cb.addEventListener('change',()=>store.setItem(cb.id,cb.checked));
-  });
-
-  // Dark‑mode toggle
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const saved = store.getItem('theme');
-  const startDark = saved ? saved==='dark' : prefersDark;
-  document.documentElement.classList.toggle('dark', startDark);
-
-  const btn = document.getElementById('toggle-theme');
-  if(btn){
-    btn.textContent = startDark ? '☀️' : '🌙';
-    btn.addEventListener('click',()=>{
-      const isDark = document.documentElement.classList.toggle('dark');
-      store.setItem('theme', isDark ? 'dark' : 'light');
-      btn.textContent = isDark ? '☀️' : '🌙';
-    });
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',()=>{ if(document.documentElement.scrollTop>400){scrollBtn.classList.add('show');} else {scrollBtn.classList.remove('show');}});
+scrollBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+<script>
+(function(){
+  const root=document.documentElement;
+  const stored=localStorage.getItem('theme');
+  if(stored==='dark'||(!stored&&window.matchMedia('(prefers-color-scheme: dark)').matches)){
+    root.classList.add('dark');
   }
-});
+  const btn=document.getElementById('themeToggle');
+  const sun=btn.querySelector('.fa-sun');
+  const moon=btn.querySelector('.fa-moon');
+  function updateIcons(){
+    if(root.classList.contains('dark')){ sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+    else{ sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+  }
+  updateIcons();
+  btn.addEventListener('click',()=>{ root.classList.toggle('dark'); localStorage.setItem('theme', root.classList.contains('dark')?'dark':'light'); updateIcons();});
+})();
 </script>
 
-</head><body>
-<header><button id="toggle-theme" aria-label="Farbschema wechseln">🌙</button><h1>Zillertal‑Urlaub&nbsp;• Familien‑Planer</h1><p>Wander‑ & Indoor‑Programm mit präzisen Kartenlinks</p></header>
-<details open><summary>🌞 Haupt‑Touren</summary><section>
-<article>
-  <input type="checkbox" id="m1">
-  <div>
-    <h3>Tag 1 – Spieljoch Erlebnisrundweg 🚡 <span class="diff t1">T1</span></h3>
-    <p>Panoramaweg über Speicherteich &amp; Bergspielplatz – perfekter Einstieg.</p>
-    <p><b>Distanz:</b> 5 km &nbsp; <b>Höhenm.:</b> ↑ 250 m / ↓ 250 m &nbsp; <b>Zeit:</b> 2 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.3467,11.8517" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Bergrestaurant Spieljoch / Geolsalm</p>
-    <p><b>Track:</b> <a href="https://www.alltrails.com/trail/austria/tyrol/spieljochbahn-bergstation-rundweg" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.spieljochbahn.at/" target="_blank" rel="noopener">Spieljochbahn</a></p>
-  </div>
-</article>
 
-<article>
-  <input type="checkbox" id="m2">
-  <div>
-    <h3>Tag 2 – Tristenbach- &amp; Klausenalm <span class="diff t2">T2</span></h3>
-    <p>Wildes Bachtal mit Wasserfällen und zwei urigen Almen.</p>
-    <p><b>Distanz:</b> 7,8 km &nbsp; <b>Höhenm.:</b> ± 430 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0972,11.8673" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Tristenbachalm / Klausenalm</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/tristenbachalm-klausenalm/1334547/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m3">
-  <div>
-    <h3>Tag 3 – Penkenjoch → Astegg 🚡 <span class="diff t2">T2</span></h3>
-    <p>Höhenweg mit Adlerbühne; stetiger Abstieg.</p>
-    <p><b>Distanz:</b> 8,4 km &nbsp; <b>Höhenm.:</b> ↑ 120 m / ↓ 500 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1669,11.8614" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Granatalm / Wanglalm / Asteggalm</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/finkenberg-astegg-penkenjoch/13491612/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.mayrhofner-bergbahnen.com/en" target="_blank" rel="noopener">Penkenbahn &amp; Kombibahn</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m4">
-  <div>
-    <h3>Tag 4 – Zillergrund-Stausee &amp; Adlerblick <span class="diff t1">T1</span></h3>
-    <p>Fast ebener Uferweg mit Aussichtskanzel „Klein‑Tibet“.</p>
-    <p><b>Distanz:</b> 14 km &nbsp; <b>Höhenm.:</b> ± 200 m &nbsp; <b>Zeit:</b> 4 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0731,11.9314" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthaus Bärenbad / Alpengasthof Adlerblick</p>
-    <p><b>Track:</b> <a href="https://www.komoot.com/tour/1299818007" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m5">
-  <div>
-    <h3>Tag 5 – Pfitscher‑Joch‑Weg <span class="diff t2">T2</span></h3>
-    <p>Historischer Grenzpass mit Gletscherblicken &amp; Murmeltieren.</p>
-    <p><b>Distanz:</b> 17 km &nbsp; <b>Höhenm.:</b> ± 470 m &nbsp; <b>Zeit:</b> 4 ½ h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0456,11.7151" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Pfitscher‑Joch‑Haus</p>
-    <p><b>Track:</b> <a href="https://www.alltrails.com/trail/austria/tyrol/schlegeis-stausee-pfitscher-joch" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m6">
-  <div>
-    <h3>Tag 6 – Fichtenschloss &amp; Fichtensee 🚡 <span class="diff t1">T1</span></h3>
-    <p>Kurzer Waldweg zum großen Holz‑Spielschloss und Badesee.</p>
-    <p><b>Distanz:</b> 3,5 km &nbsp; <b>Höhenm.:</b> ± 140 m &nbsp; <b>Zeit:</b> 2 h + Spielzeit</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2409,11.8856" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Wiesenalm / Rosenalm‑Bergrestaurant</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/fichtenschloss-fichtensee/16865712/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.zillertalarena.com/en/rosenalm/" target="_blank" rel="noopener">Rosenalmbahn</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m7">
-  <div>
-    <h3>Tag 7 – Stilluptal → Grüne‑Wand‑Hütte <span class="diff t2">T2</span></h3>
-    <p>Wasserfallweg; optional Alpenrosensteig (T3).</p>
-    <p><b>Distanz:</b> 14,7 km &nbsp; <b>Höhenm.:</b> ± 376 m &nbsp; <b>Zeit:</b> 4 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0974,11.9278" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthof Wasserfall / Stillupperhaus / Grüne‑Wand‑Hütte</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/stilluppergrund-gruene-wand-huette/1448904/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m8">
-  <div>
-    <h3>Tag 8 – Ahornplateau &amp; Filzenkogel 🚡 <span class="diff t2">T2</span></h3>
-    <p>Erlebnisrundweg mit Gipfelkreuz &amp; Talpanorama.</p>
-    <p><b>Distanz:</b> 6 km &nbsp; <b>Höhenm.:</b> ± 320 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1611,11.8656" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Panoramarestaurant Ahorn / Filzenalm</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/ahorn-plateau-filzenkogel/1424489/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.mayrhofner-bergbahnen.com/en" target="_blank" rel="noopener">Ahornbahn</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m9">
-  <div>
-    <h3>Tag 9 – Zemmschlucht – Gamsgrube <span class="diff t2">T2</span></h3>
-    <p>Felsschlucht, Hängebrücke &amp; Naturlehrpfad.</p>
-    <p><b>Distanz:</b> 8,2 km &nbsp; <b>Höhenm.:</b> ↑ 500 m / ↓ 400 m &nbsp; <b>Zeit:</b> 4 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1083,11.8237" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Jausenstation Gamsgrube / Naturparkhaus Ginzling</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/zemmschlucht-gamsgrube/12486065/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m10">
-  <div>
-    <h3>Tag 10 – Krimmler Wasserfälle &amp; Achenweg <span class="diff t2">T2</span></h3>
-    <p>Serpentinenweg entlang Europas höchster Wasserfälle.</p>
-    <p><b>Distanz:</b> 7,2 km &nbsp; <b>Höhenm.:</b> ± 430 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2094,12.1665" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthaus Schönangerl / Krimmler Tauernhaus</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/krimmler-wasserfaelle/1224507/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m11">
-  <div>
-    <h3>Tag 11 – Gerlosstein Zirbenweg &amp; Larchkogel 🚡 <span class="diff t2">T2</span></h3>
-    <p>Duftender Zirbenwald &amp; Aussichtskanzeln.</p>
-    <p><b>Distanz:</b> 5,5 km &nbsp; <b>Höhenm.:</b> ± 350 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2221,11.8638" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Berghotel Gerlosstein / Kotahornalm</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/gerlosstein-zirbenweg/1339894/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.zillertalarena.com/en/gerlossteinbahn/" target="_blank" rel="noopener">Gerlossteinbahn</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m12">
-  <div>
-    <h3>Tag 12 – Wedelhütten‑Panoramaweg 🚡 <span class="diff t1">T1</span></h3>
-    <p>Sanfter Gipfelplateau‑Spaziergang auf 2 300 m.</p>
-    <p><b>Distanz:</b> 4,8 km &nbsp; <b>Höhenm.:</b> ± 200 m &nbsp; <b>Zeit:</b> 2 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2879,11.8733" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Wedelhütte / Kristallhütte</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/wedelhutte-panoramaweg/17544002/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.hochzillertal.com/en/" target="_blank" rel="noopener">Wimbachexpress</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m13">
-  <div>
-    <h3>Tag 13 – Steinerkogel (Brandberg) <span class="diff t2">T2</span></h3>
-    <p>Serpentinenweg zur Kaiserschmarrn‑Terrasse.</p>
-    <p><b>Distanz:</b> 4,3 km &nbsp; <b>Höhenm.:</b> ± 600 m &nbsp; <b>Zeit:</b> 3 ½ h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.1708,11.9189" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Gasthof Steinerkogl</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/steinerkogl-brandberg/1208755/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="m14">
-  <div>
-    <h3>Tag 14 – Abschiedsrunde Radweg / Badesee <span class="diff t1">T1</span></h3>
-    <p>Gemütliches Ausradeln oder See‑Picknick.</p>
-    <p><b>Distanz:</b> variabel ≈ 10 km &nbsp; <b>Höhenm.:</b> ± 50 m &nbsp; <b>Zeit:</b> 1 – 2 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.3522,11.8417" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> –</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/cycling/zillertalradweg/1178252/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article></section></details><details><summary>⛰️ Alternativ‑Touren</summary><section>
-<article>
-  <input type="checkbox" id="a1">
-  <div>
-    <h3>Alt A – Olpererhütte &amp; Hängebrücke <span class="diff t2">T2</span></h3>
-    <p>Familienfreundlicher Serpentinensteig zur bekannten Brücke (T2).</p>
-    <p><b>Distanz:</b> 7 km &nbsp; <b>Höhenm.:</b> ± 600 m &nbsp; <b>Zeit:</b> 3 ½ h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0456,11.7151" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Olpererhütte</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/olpererhuette/1463907/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="a2">
-  <div>
-    <h3>Alt B – Plauener Hütte am Zillergründl <span class="diff t3">T3</span></h3>
-    <p>Blockweg über Staumauer mit tollem Gletscherblick (T3).</p>
-    <p><b>Distanz:</b> 9,3 km &nbsp; <b>Höhenm.:</b> ± 553 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0479,11.8936" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Plauener Hütte</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/plauener-huette/1372700/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="a3">
-  <div>
-    <h3>Alt C – Kotahornalm‑Rundweg 🚡 <span class="diff t2">T2</span></h3>
-    <p>Wurzelpfad durch Zirbenwald, ruhige Alm (T2).</p>
-    <p><b>Distanz:</b> 7,5 km &nbsp; <b>Höhenm.:</b> ± 581 m &nbsp; <b>Zeit:</b> 2 ¾ h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.2221,11.8638" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Kotahornalm / Berghotel Gerlosstein</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/kotahornalm/1459400/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    <p><b>Bergbahn:</b> <a href="https://www.zillertalarena.com/en/gerlossteinbahn/" target="_blank" rel="noopener">Gerlossteinbahn</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="a4">
-  <div>
-    <h3>Alt D – Steinbockweg Floitengrund <span class="diff t3">T3</span></h3>
-    <p>Wilder Talschluss mit Steinbock‑Chance (T3).</p>
-    <p><b>Distanz:</b> 8,2 km &nbsp; <b>Höhenm.:</b> ± 400 m &nbsp; <b>Zeit:</b> 3 h</p>
-    <p><b>Start:</b> <a href="https://maps.apple.com/?ll=47.0736,11.8778" target="_blank" rel="noopener">Karte</a> &nbsp; <b>Einkehr:</b> Steinbockhütte</p>
-    <p><b>Track:</b> <a href="https://www.outdooractive.com/en/route/hiking-route/steinbockweg-floitengrund/1572400/" target="_blank" rel="noopener">GPX / Karte</a></p>
-    
-  </div>
-</article></section></details><details><summary>☔ Schlechtwetter‑Aktivitäten</summary><section>
-<article>
-  <input type="checkbox" id="bw1">
-  <div>
-    <h3>Erlebnistherme Zillertal</h3>
-    <p>Wasserwelt mit 133 m Rutsche &amp; Solebecken</p>
-    <p><a href="https://www.erlebnistherme-zillertal.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.346,11.852" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw2">
-  <div>
-    <h3>Kletterzentrum Zillertal</h3>
-    <p>1 500 m² Indoor‑Klettern &amp; Boulderhalle</p>
-    <p><a href="https://www.kletterzentrum-zillertal.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2365,11.871" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw3">
-  <div>
-    <h3>FeuerWerk HolzErlebniswelt</h3>
-    <p>Multimedia‑Show über nachhaltige Holzwirtschaft</p>
-    <p><a href="https://www.feuerwerk.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.3463,11.8525" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw4">
-  <div>
-    <h3>Naturparkhaus Ginzling</h3>
-    <p>Interaktive Ausstellung „Gletscher.Wasser.Leben“</p>
-    <p><a href="https://www.naturpark-zillertal.at/en/naturepark-house.html" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.0972,11.8673" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw5">
-  <div>
-    <h3>Boulderhalle freiraum</h3>
-    <p>Indoor‑Bouldern &amp; Kids‑Zone</p>
-    <p><a href="https://www.freiraum-mayrhofen.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.1674,11.8649" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw6">
-  <div>
-    <h3>Heimatmuseum Zell</h3>
-    <p>Bauernstube &amp; Wintersport‑Historie</p>
-    <p><a href="https://www.museumzell.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2344,11.8711" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw7">
-  <div>
-    <h3>ErlebnisSennerei Zillertal</h3>
-    <p>Schaukäserei &amp; Streichelzoo</p>
-    <p><a href="https://www.erlebniswelt-zillertal.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.1719,11.8674" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw8">
-  <div>
-    <h3>Planetarium Schwaz</h3>
-    <p>360°‑Sternenshows für Kids &amp; Erwachsene</p>
-    <p><a href="https://www.planetarium.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.3463,11.7064" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw9">
-  <div>
-    <h3>BrauKunstHaus Zillertal Bier</h3>
-    <p>Hopfen‑Erlebnisweg &amp; Verkostung</p>
-    <p><a href="https://www.braukunsthaus.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2348,11.8715" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw10">
-  <div>
-    <h3>Museum der Völker</h3>
-    <p>Masken, Kulturen &amp; Mitmach‑Stationen</p>
-    <p><a href="https://www.museumdervoelker.com/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.3483,11.7052" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw11">
-  <div>
-    <h3>Museum der Illusionen Innsbruck</h3>
-    <p>Verblüffende Illusionen &amp; Selfie‑Spots</p>
-    <p><a href="https://innsbruck.museumderillusionen.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2682,11.3938" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw12">
-  <div>
-    <h3>YOUR DOME Tirol</h3>
-    <p>360°‑Kuppel für Dokus &amp; Konzerte</p>
-    <p><a href="https://yourdometirol.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.346,11.8516" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw13">
-  <div>
-    <h3>Glockendorf Tirol</h3>
-    <p>Mitmach‑Ausstellung zu Glockenguss &amp; Klang</p>
-    <p><a href="https://www.glockendorf.com/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.5914,12.5414" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article>
-
-<article>
-  <input type="checkbox" id="bw14">
-  <div>
-    <h3>Kletterzentrum Innsbruck</h3>
-    <p>Europas größtes Kletter‑ &amp; Boulderzentrum</p>
-    <p><a href="https://www.kletterzentrum-innsbruck.at/" target="_blank" rel="noopener">Website ↗</a> &nbsp;•&nbsp; <a href="https://maps.apple.com/?ll=47.2603,11.3969" target="_blank" rel="noopener">Karte</a></p>
-  </div>
-</article></section></details><footer>© 2025 – Viel Spaß im Zillertal!</footer></body></html>
+</body>
+</html>
