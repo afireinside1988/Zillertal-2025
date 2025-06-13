@@ -5,10 +5,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zillertal Tourenplan 2025</title>
-<script>tailwind.config = { darkMode: "class" };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
+/* ===== Tour status & rating ===== */
+.rating i { color: #d1d5db; cursor: pointer; }
+.rating i.active { color: #f59e0b; }
+article.done { opacity: 0.6; }
+label.tour-done-label { display: flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; }
+label.tour-done-label input { accent-color: #059669; }
+
 summary { @apply cursor-pointer select-none text-lg font-semibold;}
 summary::-webkit-details-marker{display:none;} 
 /* Arrow icons on summary */
@@ -35,40 +41,19 @@ details[open] > summary::after{
   display:flex;
 }
 
-
-/* Smooth accordion animation */
-details > .accordion-body{
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-details[open] > .accordion-body{
-  max-height: 5000px; /* big enough */
-}
-
-/* Hide default triangle */
-summary::-webkit-details-marker{
-  display:none;
-}
-
 </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+<body class="bg-gray-100 text-gray-900">
 <div class="max-w-5xl mx-auto p-4">
-<header class="text-center relative mb-8 bg-gradient-to-r from-emerald-600 to-green-800 text-white py-10 rounded-lg shadow-lg dark:from-emerald-700 dark:to-green-900">
+<header class="text-center mb-8 bg-gradient-to-r from-emerald-600 to-green-800 text-white py-10 rounded-lg shadow-lg">
   <h1 class="text-3xl font-bold">Tourenplan – Stumm im Zillertal (5.–19. Juli 2025)</h1>
-<button id="themeToggle" aria-label="Designmodus wechseln"
-  class="absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 p-2 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-  <i class="fa-solid fa-sun"></i>
-  <i class="fa-solid fa-moon hidden"></i>
-</button>
 </header>
 
 <details open class="mb-6">
-<summary class="bg-emerald-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Haupttouren (13)</summary>
-<div class="accordion-body space-y-4 mt-4">
+  <summary class="bg-emerald-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Haupttouren (13)</summary>
+  <div class="space-y-4 mt-4">
     
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Filzenkogel 2 218 m</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Ahornbahn"></i></div>
@@ -79,16 +64,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 250 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Ahornbahn (Mayrhofen)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.ahornhuette-mayrhofen.at/de/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Ahornhütte</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.ahornhuette-mayrhofen.at/de/" target="_blank" class="text-blue-600 underline">Ahornhütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.tirol.at/aktivitaeten/sport/winterwandern/winterwanderungen/winterwanderweg-filzenkogel" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Ahornbahn</a>
+    <a href="https://www.tirol.at/aktivitaeten/sport/winterwandern/winterwanderungen/winterwanderweg-filzenkogel" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Ahornbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Spieljoch – Geols- &amp; Gartalm-Runde</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Spieljochbahn"></i></div>
@@ -99,16 +84,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 302 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Spieljochbahn (Fügen)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.bergwelten.com/h/jausenstation-geolsalm" target="_blank" class="text-blue-600 underline dark:text-blue-400">Geolsalm</a>, <a href="https://hubertus-zillertal.com/gart-alm" target="_blank" class="text-blue-600 underline dark:text-blue-400">Gartalm</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.bergwelten.com/h/jausenstation-geolsalm" target="_blank" class="text-blue-600 underline">Geolsalm</a>, <a href="https://hubertus-zillertal.com/gart-alm" target="_blank" class="text-blue-600 underline">Gartalm</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.outdooractive.com/de/route/wanderung/erste-ferienregion-zillertal/leichte-rundwanderung-am-spieljoch-mit-gartalm-/225390471/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.spieljochbahn.at/sommer/tarife/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Spieljochbahn</a>
+    <a href="https://www.outdooractive.com/de/route/wanderung/erste-ferienregion-zillertal/leichte-rundwanderung-am-spieljoch-mit-gartalm-/225390471/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.spieljochbahn.at/sommer/tarife/" target="_blank" class="text-blue-600 underline">Spieljochbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Isskogel 2 264 m</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Isskogelbahn"></i></div>
@@ -119,16 +104,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 360 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Isskogelbahn (Gerlos)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.latschenalm.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Latschenalm</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.latschenalm.com" target="_blank" class="text-blue-600 underline">Latschenalm</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.zillertalarena.com/gerlos/sommer/wandergebiet/detail/wanderung-auf-den-isskogel-2264-m-nr-1/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Isskogelbahn</a>
+    <a href="https://www.zillertalarena.com/gerlos/sommer/wandergebiet/detail/wanderung-auf-den-isskogel-2264-m-nr-1/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/" target="_blank" class="text-blue-600 underline">Isskogelbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Fichtenschloss &amp; Fichtensee</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Rosenalmbahn"></i></div>
@@ -142,13 +127,13 @@ summary::-webkit-details-marker{
     <li><strong>Einkehr:</strong> Berggasthof Rosenalm</li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.zillertalarena.com/sommer/bergbahnen/erlebniswelten/erlebniswelt-rosenalm/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Rosenalmbahn</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/erlebniswelten/erlebniswelt-rosenalm/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/" target="_blank" class="text-blue-600 underline">Rosenalmbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Holzweg Zellberg</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span></div>
@@ -159,16 +144,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 290 hm</li>
     <li><strong>Ausgangspunkt:</strong> Parkplatz Zillerbrücke Zellberg</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.schulhaus.tirol" target="_blank" class="text-blue-600 underline dark:text-blue-400">Jausenstation Schulhaus</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.schulhaus.tirol" target="_blank" class="text-blue-600 underline">Jausenstation Schulhaus</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.tirol.at/aktivitaeten/sport/wandern/wandertouren/holzweg-zellberg" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.tirol.at/aktivitaeten/sport/wandern/wandertouren/holzweg-zellberg" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
     
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Schleierwasserfall Hart</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span></div>
@@ -179,16 +164,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 200 hm</li>
     <li><strong>Ausgangspunkt:</strong> Gasthof Almdiele (Hart im Zillertal)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.almdiele.at/restaurant/speisekarte/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Almdiele</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.almdiele.at/restaurant/speisekarte/" target="_blank" class="text-blue-600 underline">Almdiele</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.almenrausch.at/touren/detail/harter-schleierwasserfall-von-haselbach/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.almenrausch.at/touren/detail/harter-schleierwasserfall-von-haselbach/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
     
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Kristallhütten‑Panoramaweg</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Hochzillertal (Wimbach‑Express)"></i></div>
@@ -199,16 +184,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 250 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Wimbach‑Express (Hochzillertal, Kaltenbach)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.kristallhuette.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Kristallhütte</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.kristallhuette.at/" target="_blank" class="text-blue-600 underline">Kristallhütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.kristallhuette.at/sommer-am-berg/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline dark:text-blue-400">Hochzillertal (Wimbach‑Express)</a>
+    <a href="https://www.kristallhuette.at/sommer-am-berg/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline">Hochzillertal (Wimbach‑Express)</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Melchboden – Arbiskopf 2 135 m</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Zillertaler Höhenstraße"></i></div>
@@ -218,17 +203,17 @@ summary::-webkit-details-marker{
     <li><strong>Distanz:</strong> 7,5 km</li>
     <li><strong>Höhenmeter:</strong> ↑↓ 414 hm</li>
     <li><strong>Ausgangspunkt:</strong> Parkplatz Melchboden (Zillertaler Höhenstraße)</li>
-    <li><strong>Mautstraße:</strong> <a href="https://www.zillertaler-hoehenstrasse.com/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zillertaler Höhenstraße</a></li>
-    <li><strong>Einkehr:</strong> <a href="https://www.rastkogelhuette.de" target="_blank" class="text-blue-600 underline dark:text-blue-400">Rastkogelhütte</a></li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.zillertaler-hoehenstrasse.com/" target="_blank" class="text-blue-600 underline">Zillertaler Höhenstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.rastkogelhuette.de" target="_blank" class="text-blue-600 underline">Rastkogelhütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/899660%2Cmelchboden--arbiskopf--rauhenkopf--rastkogelhuette--melchboden/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/899660%2Cmelchboden--arbiskopf--rauhenkopf--rastkogelhuette--melchboden/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
     
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Stillupp-Stausee → Grüne‑Wand‑Hütte</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Stilluppstraße"></i></div>
@@ -238,17 +223,17 @@ summary::-webkit-details-marker{
     <li><strong>Distanz:</strong> 11 km (A/R)</li>
     <li><strong>Höhenmeter:</strong> ↑↓ 300 hm</li>
     <li><strong>Ausgangspunkt:</strong> Parking Stillupp-Stausee Nordufer</li>
-    <li><strong>Mautstraße:</strong> <a href="https://www.myzillertal.at/de/service-providers/mautstrasse-stilluptal" target="_blank" class="text-blue-600 underline dark:text-blue-400">Stilluppstraße</a></li>
-    <li><strong>Einkehr:</strong> <a href="https://www.mayrhofen.at/de/service-providers/gruene-wand-huette-1436m" target="_blank" class="text-blue-600 underline dark:text-blue-400">Grüne‑Wand‑Hütte</a></li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.myzillertal.at/de/service-providers/mautstrasse-stilluptal" target="_blank" class="text-blue-600 underline">Stilluppstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.mayrhofen.at/de/service-providers/gruene-wand-huette-1436m" target="_blank" class="text-blue-600 underline">Grüne‑Wand‑Hütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.tirol.tl/de/freizeit-aktiv/berge-wandern/durch-das-stilluptal-zur-gruene-wand-huette/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.tirol.tl/de/freizeit-aktiv/berge-wandern/durch-das-stilluptal-zur-gruene-wand-huette/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
     
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Penkenjoch‑Panoramarunde &amp; Granatalm</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Penken-/Kombibahn"></i></div>
@@ -259,16 +244,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 330 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Kombibahn Penken (Mayrhofen)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.granatalm.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Granatalm</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.granatalm.at/" target="_blank" class="text-blue-600 underline">Granatalm</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.komoot.com/de-de/tour/406628229?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer" target="_blank" class="text-blue-600 underline dark:text-blue-400">Penken-/Kombibahn</a>
+    <a href="https://www.komoot.com/de-de/tour/406628229?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer" target="_blank" class="text-blue-600 underline">Penken-/Kombibahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Almpromenade Gerlosstein</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Gerlossteinbahn"></i></div>
@@ -279,16 +264,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 72 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Gerlossteinbahn (Hainzenberg)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.gerlosstein.at/geoeffnet-von-bis.html" target="_blank" class="text-blue-600 underline dark:text-blue-400">Berghotel Gerlosstein</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.gerlosstein.at/geoeffnet-von-bis.html" target="_blank" class="text-blue-600 underline">Berghotel Gerlosstein</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.zillertalarena.com/sommer/wandergebiet/themenwanderwege/detail/almpromenade-gerlosstein/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Gerlossteinbahn</a>
+    <a href="https://www.zillertalarena.com/sommer/wandergebiet/themenwanderwege/detail/almpromenade-gerlosstein/" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/sommer/bergbahnen/tickets-tarife/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Gerlossteinbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Eggalm „Almspielerei“‑Erlebnisrunde</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Eggalmbahn"></i></div>
@@ -299,16 +284,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 150 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Eggalmbahn (Tux‑Lanersbach)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://eggalm.at/de" target="_blank" class="text-blue-600 underline dark:text-blue-400">Berggasthof Eggalm</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://eggalm.at/de" target="_blank" class="text-blue-600 underline">Berggasthof Eggalm</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.hintertuxergletscher.at/de/sommer/eggalm-im-sommer/almspielerei/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.hintertuxergletscher.at/de/preise/ticketpreise/preise-eggalm-bahnen/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Eggalmbahn</a>
+    <a href="https://www.hintertuxergletscher.at/de/sommer/eggalm-im-sommer/almspielerei/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.hintertuxergletscher.at/de/preise/ticketpreise/preise-eggalm-bahnen/" target="_blank" class="text-blue-600 underline">Eggalmbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Murmelland &amp; Skulpturenweg Hochzillertal</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-green-500 text-white">T1</span><i class="fa-solid fa-cable-car" title="Bergbahn: Hochzillertal Gondel"></i></div>
@@ -319,11 +304,11 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 180 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Kaltenbach (Hochzillertal)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.murmelland-zillertal.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Jausenstation Murmelland</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.murmelland-zillertal.at/" target="_blank" class="text-blue-600 underline">Jausenstation Murmelland</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.murmelland-zillertal.at" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline dark:text-blue-400">Hochzillertal Gondel</a>
+    <a href="https://www.murmelland-zillertal.at" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline">Hochzillertal Gondel</a>
   </div>
 </article>
 
@@ -331,10 +316,10 @@ summary::-webkit-details-marker{
 </details>
 
 <details  class="mb-6">
-<summary class="bg-teal-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Bonus‑Touren (5)</summary>
-<div class="accordion-body space-y-4 mt-4">
+  <summary class="bg-teal-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Bonus‑Touren (5)</summary>
+  <div class="space-y-4 mt-4">
     
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Pfitscherjoch‑Haus 2 246 m</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Schlegeis Alpenstraße"></i></div>
@@ -344,17 +329,17 @@ summary::-webkit-details-marker{
     <li><strong>Distanz:</strong> 12 km </li>
     <li><strong>Höhenmeter:</strong> ↑↓ 350 hm</li>
     <li><strong>Ausgangspunkt:</strong> Parkplatz Schlegeis‑Stausee</li>
-    <li><strong>Mautstraße:</strong> <a href="https://www.schlegeis-speicher.com/schlegeis-alpenstrasse/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Schlegeis Alpenstraße</a></li>
-    <li><strong>Einkehr:</strong> <a href="https://www.pfitscherjochhaus.com/de/?utm_source=pfitscherjochhaus.com&utm_medium=301&utm_campaign=SecDomain" target="_blank" class="text-blue-600 underline dark:text-blue-400">Pfitscherjoch‑Haus</a></li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.schlegeis-speicher.com/schlegeis-alpenstrasse/" target="_blank" class="text-blue-600 underline">Schlegeis Alpenstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.pfitscherjochhaus.com/de/?utm_source=pfitscherjochhaus.com&utm_medium=301&utm_campaign=SecDomain" target="_blank" class="text-blue-600 underline">Pfitscherjoch‑Haus</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/29658,pfitscherjoch-haus-ab-schlegeisspeicher/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/29658,pfitscherjoch-haus-ab-schlegeisspeicher/" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
     
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Karl‑von‑Edel‑Hütte 2 238 m</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-cable-car" title="Bergbahn: Ahornbahn"></i></div>
@@ -365,16 +350,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 346 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Ahornbahn (Mayrhofen)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.dav-wuerzburg.de/hütten/karl-von-edel-huette" target="_blank" class="text-blue-600 underline dark:text-blue-400">Karl‑von‑Edel‑Hütte</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.dav-wuerzburg.de/hütten/karl-von-edel-huette" target="_blank" class="text-blue-600 underline">Karl‑von‑Edel‑Hütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.bergwelten.com/t/w/3715?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer" target="_blank" class="text-blue-600 underline dark:text-blue-400">Ahornbahn</a>
+    <a href="https://www.bergwelten.com/t/w/3715?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.mayrhofen.at/de/stories/mountopolis-preise-und-oeffnungszeiten-sommer" target="_blank" class="text-blue-600 underline">Ahornbahn</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Rastkogelhütte‑Rundweg</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-yellow-400 text-gray-900">T2</span><i class="fa-solid fa-road" title="Mautstraße: Zillertaler Höhenstraße"></i></div>
@@ -384,17 +369,17 @@ summary::-webkit-details-marker{
     <li><strong>Distanz:</strong> 7,5 km</li>
     <li><strong>Höhenmeter:</strong> ↑↓ 500 hm</li>
     <li><strong>Ausgangspunkt:</strong> Parkplatz Melchboden</li>
-    <li><strong>Mautstraße:</strong> <a href="https://www.zillertaler-hoehenstrasse.com/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zillertaler Höhenstraße</a></li>
-    <li><strong>Einkehr:</strong> <a href="https://www.rastkogelhuette.de" target="_blank" class="text-blue-600 underline dark:text-blue-400">Rastkogelhütte</a></li>
+    <li><strong>Mautstraße:</strong> <a href="https://www.zillertaler-hoehenstrasse.com/" target="_blank" class="text-blue-600 underline">Zillertaler Höhenstraße</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.rastkogelhuette.de" target="_blank" class="text-blue-600 underline">Rastkogelhütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.komoot.com/de-de/tour/90274254?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
+    <a href="https://www.komoot.com/de-de/tour/90274254?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
     
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Marchkopf 2 499 m</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-red-500 text-white">T3</span><i class="fa-solid fa-cable-car" title="Bergbahn: Hochzillertal (Wimbach‑Express)"></i></div>
@@ -405,16 +390,16 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 460 hm</li>
     <li><strong>Ausgangspunkt:</strong> Kristallhütte (Hochzillertal)</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.kristallhuette.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Kristallhütte</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.kristallhuette.at/" target="_blank" class="text-blue-600 underline">Kristallhütte</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.zillertalarena.com/sommer/bikeregion/biketouren/detail/gipfelwanderung-marchkopf-2499-m/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline dark:text-blue-400">Hochzillertal (Wimbach‑Express)</a>
+    <a href="https://www.zillertalarena.com/sommer/bikeregion/biketouren/detail/gipfelwanderung-marchkopf-2499-m/" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.hochzillertal.com/preise/einzelkarten" target="_blank" class="text-blue-600 underline">Hochzillertal (Wimbach‑Express)</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between flex-wrap gap-x-4">
     <h3 class="font-semibold text-lg">Isskogel → Stoankarköpfl‑Höhenweg</h3>
     <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded text-sm bg-gradient-to-r from-yellow-400 to-red-500 text-white">T2 – T3</span><i class="fa-solid fa-cable-car" title="Bergbahn: Isskogelbahn"></i></div>
@@ -425,11 +410,11 @@ summary::-webkit-details-marker{
     <li><strong>Höhenmeter:</strong> ↑↓ 480 hm</li>
     <li><strong>Ausgangspunkt:</strong> Bergstation Isskogelbahn</li>
     
-    <li><strong>Einkehr:</strong> <a href="https://www.latschenalm.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Latschenalm</a></li>
+    <li><strong>Einkehr:</strong> <a href="https://www.latschenalm.com" target="_blank" class="text-blue-600 underline">Latschenalm</a></li>
   </ul>
   <div class="mt-2 flex flex-wrap gap-4 text-sm">
-    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/4266345,isskogel-panoramaweg/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Tour &amp; GPX</a>
-    <a href="https://www.zillertalarena.com/de/gerlos/seilbahnen/sommer.html" target="_blank" class="text-blue-600 underline dark:text-blue-400">Isskogelbahn</a>
+    <a href="https://www.bergfex.at/sommer/tirol/touren/wanderung/4266345,isskogel-panoramaweg/" target="_blank" class="text-blue-600 underline">Tour &amp; GPX</a>
+    <a href="https://www.zillertalarena.com/de/gerlos/seilbahnen/sommer.html" target="_blank" class="text-blue-600 underline">Isskogelbahn</a>
   </div>
 </article>
 
@@ -437,115 +422,115 @@ summary::-webkit-details-marker{
 </details>
 
 <details  class="mb-6">
-<summary class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Schlechtwetter‑Ideen (10)</summary>
-<div class="accordion-body space-y-4 mt-4">
+  <summary class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow flex items-center justify-between">Schlechtwetter‑Ideen (10)</summary>
+  <div class="space-y-4 mt-4">
     
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Erlebnistherme Zillertal Fügen</h3>
   </div>
   <p class="mt-1 text-sm">Große Indoor-Badelandschaft mit Wellenbecken &amp; Rutschen.</p>
   <div class="mt-2">
-    <a href="https://www.erlebnistherme-zillertal.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.erlebnistherme-zillertal.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">FeuerWerk HolzErlebnisWelt Fügen</h3>
   </div>
   <p class="mt-1 text-sm">Führung durch ein Biomassekraftwerk mit Sky‑Lounge.</p>
   <div class="mt-2">
-    <a href="https://www.binderholz-feuerwerk.com/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.binderholz-feuerwerk.com/?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Museum Tiroler Bauernhöfe Kramsach</h3>
   </div>
   <p class="mt-1 text-sm">Freilichtmuseum mit 14 originalen Tiroler Gehöften.</p>
   <div class="mt-2">
-    <a href="https://www.museum-tb.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.museum-tb.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Riedel Glas Manufaktur Kufstein</h3>
   </div>
   <p class="mt-1 text-sm">Glasbläser live erleben &amp; Sensorik‑Tour.</p>
   <div class="mt-2">
-    <a href="https://www.riedel.com/de/riedel-manufaktur-museum?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.riedel.com/de/riedel-manufaktur-museum?utm_source=chatgpt.com" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Atoll Achensee (Maurach)</h3>
   </div>
   <p class="mt-1 text-sm">Panorama‑Bad &amp; SPA direkt am See, Kletterturm.</p>
   <div class="mt-2">
-    <a href="https://www.atoll-achensee.com/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.atoll-achensee.com/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Audioversum Innsbruck</h3>
   </div>
   <p class="mt-1 text-sm">Interaktives Science‑Center rund ums Hören.</p>
   <div class="mt-2">
-    <a href="https://www.audioversum.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.audioversum.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Your Dome Tirol – Planetarium Schwaz</h3>
   </div>
   <p class="mt-1 text-sm">360°‑Shows von Astronomie bis Abenteuer.</p>
   <div class="mt-2">
-    <a href="https://www.yourdome.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.yourdome.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Erlebnis‑Sennerei Zillertal Mayrhofen</h3>
   </div>
   <p class="mt-1 text-sm">Schau‑Käserei &amp; Bauernhof‑Zoo.</p>
   <div class="mt-2">
-    <a href="https://www.sennerei-zillertal.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.sennerei-zillertal.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">BrauKunstHaus Zell am Ziller</h3>
   </div>
   <p class="mt-1 text-sm">Multimediale Bier‑Erlebniswelt mit Verkostung.</p>
   <div class="mt-2">
-    <a href="https://www.braukunsthaus.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.braukunsthaus.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
 
-<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:ring-emerald-500">
+<article class="bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-lg hover:ring-2 hover:ring-emerald-300">
   <div class="flex items-center justify-between">
     <h3 class="font-semibold text-lg">Festung Kufstein</h3>
   </div>
   <p class="mt-1 text-sm">Mächtige Grenzfestung mit Heldenorgel.</p>
   <div class="mt-2">
-    <a href="https://www.festung.kufstein.at/" target="_blank" class="text-blue-600 underline dark:text-blue-400">Zur Webseite</a>
+    <a href="https://www.festung.kufstein.at/" target="_blank" class="text-blue-600 underline">Zur Webseite</a>
   </div>
 </article>
 
@@ -557,7 +542,7 @@ summary::-webkit-details-marker{
 </footer>
 </div>
 
-<button id="scrollTopBtn" aria-label="Nach oben scrollen" class="bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:bg-emerald-700 transition dark:bg-emerald-700">
+<button id="scrollTopBtn" aria-label="Nach oben scrollen" class="bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:bg-emerald-700 transition">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 <script>
@@ -565,29 +550,71 @@ const scrollBtn=document.getElementById('scrollTopBtn');
 window.addEventListener('scroll',()=>{ if(document.documentElement.scrollTop>400){scrollBtn.classList.add('show');} else {scrollBtn.classList.remove('show');}});
 scrollBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
 </script>
+
+
 <script>
-(function(){
-  const root=document.documentElement;
-  const stored=localStorage.getItem('theme');
-  if(stored==='dark'||(!stored&&window.matchMedia('(prefers-color-scheme: dark)').matches)){
-    root.classList.add('dark');
-  }
-  const btn=document.getElementById('themeToggle');
-  if(!btn) return;
-  const sun=btn.querySelector('.fa-sun');
-  const moon=btn.querySelector('.fa-moon');
-  function updateIcons(){
-    if(root.classList.contains('dark')){
-      sun.classList.add('hidden'); moon.classList.remove('hidden');
-    } else {
-      sun.classList.remove('hidden'); moon.classList.add('hidden');
+// TOUR-STATUS + RATING
+(() => {
+  const KEY = 'tourStatusV1';
+  const store = JSON.parse(localStorage.getItem(KEY) || '{}');
+
+  // Helper to create element from HTML
+  const el = h => {
+    const t = document.createElement('template');
+    t.innerHTML = h.trim();
+    return t.content.firstChild;
+  };
+
+  document.querySelectorAll('article').forEach(article => {
+    const titleEl = article.querySelector('h3');
+    if (!titleEl) return;
+    const id = titleEl.textContent.trim();
+    article.dataset.tour = id;
+
+    /* ==== Done Checkbox ==== */
+    const header = article.querySelector('header') || article;
+    const chkLabel = el('<label class="tour-done-label"><input type="checkbox" class="tour-done"> erledigt</label>');
+    header.appendChild(chkLabel);
+    const cb = chkLabel.querySelector('input');
+
+    if (store[id]?.done) {
+      cb.checked = true;
+      article.classList.add('done');
     }
-  }
-  updateIcons();
-  btn.addEventListener('click',()=>{ root.classList.toggle('dark'); localStorage.setItem('theme', root.classList.contains('dark')?'dark':'light'); updateIcons();});
+
+    cb.addEventListener('change', () => {
+      article.classList.toggle('done', cb.checked);
+      store[id] = { ...(store[id]||{}), done: cb.checked };
+      localStorage.setItem(KEY, JSON.stringify(store));
+    });
+
+    /* ==== Rating Stars ==== */
+    const ratingBlock = el('<div class="rating" style="margin-top:0.5rem;"></div>');
+    for (let i=1;i<=5;i++){
+      const star = el('<i class="fa-solid fa-star" data-val="'+i+'"></i>');
+      ratingBlock.appendChild(star);
+    }
+    const firstParagraph = article.querySelector('p') || article;
+    firstParagraph.insertAdjacentElement('afterend', ratingBlock);
+
+    const stars = Array.from(ratingBlock.querySelectorAll('i'));
+
+    const paint = val => {
+      stars.forEach(s => s.classList.toggle('active', Number(s.dataset.val) <= val));
+    };
+    paint(store[id]?.rating || 0);
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const val = Number(star.dataset.val);
+        store[id] = { ...(store[id]||{}), rating: val };
+        localStorage.setItem(KEY, JSON.stringify(store));
+        paint(val);
+      });
+    });
+  });
 })();
 </script>
-
 
 </body>
 </html>
