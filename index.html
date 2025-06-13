@@ -552,66 +552,68 @@ scrollBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'
 </script>
 
 
-<script>
-// TOUR-STATUS + RATING
-(() => {
-  const KEY = 'tourStatusV1';
-  const store = JSON.parse(localStorage.getItem(KEY) || '{}');
 
-  // Helper to create element from HTML
-  const el = h => {
-    const t = document.createElement('template');
+
+
+<script>
+// TOUR-STATUS & RATING v2 (removable rating)
+(() => {
+  const KEY = "tourStatusV1";
+  const store = JSON.parse(localStorage.getItem(KEY) || "{}");
+
+  const create = (h) => {
+    const t = document.createElement("template");
     t.innerHTML = h.trim();
     return t.content.firstChild;
   };
 
-  document.querySelectorAll('article').forEach(article => {
-    const titleEl = article.querySelector('h3');
-    if (!titleEl) return;
-    const id = titleEl.textContent.trim();
-    article.dataset.tour = id;
+  document.querySelectorAll("article").forEach((card) => {
+    const title = card.querySelector("h3")?.textContent.trim() || "";
+    if (!title) return;
 
-    /* ==== Done Checkbox ==== */
-    const header = article.querySelector('header') || article;
-    const chkLabel = el('<label class="tour-done-label"><input type="checkbox" class="tour-done"> erledigt</label>');
-    header.appendChild(chkLabel);
-    const cb = chkLabel.querySelector('input');
-
-    if (store[id]?.done) {
-      cb.checked = true;
-      article.classList.add('done');
+    /* ========== Done checkbox ========== */
+    let label = card.querySelector(".tour-done-label");
+    if (!label) {
+      const header = card.querySelector("header") || card;
+      label = create('<label class="tour-done-label"><input type="checkbox" class="tour-done"> erledigt</label>');
+      header.appendChild(label);
     }
-
-    cb.addEventListener('change', () => {
-      article.classList.toggle('done', cb.checked);
-      store[id] = { ...(store[id]||{}), done: cb.checked };
+    const cb = label.querySelector("input");
+    if (store[title]?.done) {
+      cb.checked = true;
+      card.classList.add("done");
+    }
+    cb.addEventListener("change", () => {
+      card.classList.toggle("done", cb.checked);
+      store[title] = { ...(store[title] || {}), done: cb.checked };
       localStorage.setItem(KEY, JSON.stringify(store));
     });
 
-    /* ==== Rating Stars ==== */
-    const ratingBlock = el('<div class="rating" style="margin-top:0.5rem;"></div>');
-    for (let i=1;i<=5;i++){
-      const star = el('<i class="fa-solid fa-star" data-val="'+i+'"></i>');
-      ratingBlock.appendChild(star);
+    /* ========== Rating stars ========== */
+    let ratingDiv = card.querySelector(".rating");
+    if (!ratingDiv) {
+      ratingDiv = create('<div class="rating" style="margin-top:0.5rem;"></div>');
+      for (let i = 1; i <= 5; i++) {
+        ratingDiv.appendChild(create('<i class="fa-solid fa-star" data-val="'+i+'"></i>'));
+      }
+      const ref = card.querySelector("p") || card;
+      ref.insertAdjacentElement("afterend", ratingDiv);
     }
-    const firstParagraph = article.querySelector('p') || article;
-    firstParagraph.insertAdjacentElement('afterend', ratingBlock);
 
-    const stars = Array.from(ratingBlock.querySelectorAll('i'));
+    const stars = Array.from(ratingDiv.querySelectorAll("i"));
+    let current = store[title]?.rating || 0;
+    const paint = (val) => stars.forEach((s) => s.classList.toggle("active", +s.dataset.val <= val));
+    paint(current);
 
-    const paint = val => {
-      stars.forEach(s => s.classList.toggle('active', Number(s.dataset.val) <= val));
-    };
-    paint(store[id]?.rating || 0);
-
-    stars.forEach(star => {
-      star.addEventListener('click', () => {
-        const val = Number(star.dataset.val);
-        store[id] = { ...(store[id]||{}), rating: val };
+    stars.forEach((star) =>
+      star.addEventListener("click", () => {
+        const val = +star.dataset.val;
+        current = current === val ? 0 : val;  // toggle off if same star clicked
+        paint(current);
+        store[title] = { ...(store[title] || {}), rating: current };
         localStorage.setItem(KEY, JSON.stringify(store));
-        paint(val);
-      });
-    });
+      })
+    );
   });
 })();
 </script>
